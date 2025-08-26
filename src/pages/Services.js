@@ -18,22 +18,24 @@ export default function Services() {
   const cardsPerPage = 4;
   const totalPages = Math.ceil(services.length / cardsPerPage);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollLeft = scrollRef.current.scrollLeft;
-      const width = scrollRef.current.offsetWidth;
-      const page = Math.round(scrollLeft / width);
-      setCurrentPage(page);
-    };
-
+useEffect(() => {
+  const handleScroll = () => {
     const container = scrollRef.current;
-    container.addEventListener('scroll', handleScroll);
+    const scrollLeft = container.scrollLeft;
+    const pageWidth = container.scrollWidth / totalPages; // actual "page" size
+    const page = Math.round(scrollLeft / pageWidth);
+    setCurrentPage(page);
+  };
 
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  const container = scrollRef.current;
+  container.addEventListener('scroll', handleScroll);
+
+  return () => container.removeEventListener('scroll', handleScroll);
+}, [totalPages]);
+
 
   return (
-    <section className="services-section">
+    <section id="services" className="services-section">
       <div className="services-header">
         <span className="services-tag">Our Services</span>
         <h2 className="services-title">Best Agriculture Services</h2>

@@ -325,7 +325,7 @@
 }
 .about-section {
   background-color: #5B8C51;
-  padding: 60px 20px;
+  padding: 90px 100px;
   color: white;
 
   /* Center all content horizontally */
@@ -538,8 +538,8 @@
 /* SERVICES SECTION */
 .services-section {
   background: #fff;
-  height: 80vh;
-  padding: 60px 20px;
+  height: 90vh;
+  padding: 90px 90px;
   text-align: center;
 }
 
@@ -573,12 +573,9 @@
 
 .services-scroll-container {
   display: flex;
-  gap: 0.8rem; /* slightly tighter spacing */
-  scroll-snap-type: x mandatory;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
 }
 .services-scroll-container::-webkit-scrollbar {
   display: none;             /* Chrome, Safari */
@@ -586,14 +583,10 @@
 
 /* Card styling (smaller version) */
 .service-card {
-  flex: 0 0 calc(22% - 0.5rem); /* slimmer cards, still 4 per view */
-  background: #f8f8f8;
-  border-radius: 10px;
-  padding: 0.8rem;
+  flex: 0 0 25%; /* 4 cards per "page" */
   scroll-snap-align: start;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  padding: 20px;
 }
 .service-card:hover {
   transform: translateY(-4px);
@@ -627,23 +620,24 @@
 
 /* Dot indicators */
 .dot-indicators {
-  margin-top: 18px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
 }
 
 .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
   border-radius: 50%;
-  background-color: #ccc;
-  transition: background-color 0.3s, transform 0.3s;
+  display: inline-block;
+  transition: background 0.3s ease;
 }
 
+
 .dot.active {
-  background-color: #5B8C51;
-  transform: scale(1.2);
+  background: #5B8C51;
 }
 
 /* Responsive */
@@ -661,8 +655,9 @@
 /* Product Section Layout */
 .products-section {
   background: #fafafa;
-  padding: 60px 20px;
+  padding: 90px 80px;
   text-align: center;
+  height: 100vh;
 }
 
 .products-title {
@@ -781,7 +776,18 @@
   overflow: hidden;
 }
 
-/* Left: Form */
+/* Left: Image */
+.contact-image-wrapper {
+  flex: 1;
+}
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right: Form */
 .contact-form {
   flex: 1;
   padding: 40px;
@@ -797,13 +803,18 @@
   color: #000;
 }
 
+.contact-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
 .contact-input,
 .contact-textarea {
   width: 100%;
-  margin-bottom: 15px;
   padding: 12px 14px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 30px;
   font-size: 1rem;
 }
 
@@ -814,31 +825,19 @@
   box-shadow: 0 0 4px rgba(91, 140, 81, 0.4);
 }
 
-.contact-button {
-  padding: 14px 20px;
-  background: #5B8C51;
+.cont-button {
+  padding: 10px 15px;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.contact-button:hover {
+.cont-button:hover {
   background: #4a7444;
-}
-
-/* Right: Image */
-.contact-image-wrapper {
-  flex: 1;
-}
-
-.contact-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* Responsive */
@@ -850,4 +849,9 @@
   .contact-image-wrapper {
     height: 300px;
   }
+
+  .contact-row {
+    flex-direction: column;
+  }
 }
+
