@@ -712,49 +712,99 @@
 /* Partners Section */
 .partners-section {
   background: #fff;
-  padding: 80px 40px;
+  height: 60vh;
+  padding: 60px 90px;
   text-align: center;
 }
 
 .partners-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   color: #000;
 }
 
-.partners-list {
-  display: flex;
-  justify-content: center; /* center them horizontally */
-  align-items: center;
-  gap: 60px; /* spacing between logos */
-  flex-wrap: nowrap; /* keep all in one row */
+/* Scrollable wrapper */
+.partners-scroll-wrapper {
+  overflow-x: hidden; /* hide scrollbar */
+  position: relative;
 }
 
+.partners-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.partners-scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari */
+}
+
+/* Partner card */
 .partner-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  transition: transform 0.3s ease;
+  flex: 0 0 25%; /* 4 per page */
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .partner-card:hover {
-  transform: scale(1.05);
-  color: #fafafa;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
+/* Logo styling */
 .partner-logo {
   width: 120px;
-  height: auto;
-  margin-bottom: 10px;
+  height: 120px;
   object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 2px solid #5B8C51;
+  padding: 10px;
+  background: #fff;
 }
 
+/* Name */
 .partner-name {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   color: #333;
+  margin: 0;
+}
+
+/* Dot indicators */
+.dot-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #5B8C51;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .partner-card {
+    flex: 0 0 calc(48% - 0.5rem); /* 2 per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-card {
+    flex: 0 0 100%; /* 1 per row */
+  }
 }
 
 /* Contact Section */
@@ -855,3 +905,92 @@
   }
 }
 
+/* Large tablets / small laptops */
+@media (max-width: 1200px) {
+  .home-content h1 {
+    font-size: 4rem;
+  }
+  .subtitle {
+    font-size: 3rem;
+  }
+  .products-section {
+    padding: 60px 40px;
+  }
+}
+
+/* Tablets landscape */
+@media (max-width: 992px) {
+  .services-section,
+  .products-section,
+  .about-section {
+    padding: 60px 40px;
+  }
+  .home-content h1 {
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 2.5rem;
+  }
+  .info-container {
+    padding: 20px;
+  }
+}
+
+/* Tablets portrait / large phones */
+@media (max-width: 768px) {
+  .home-content h1 {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 2rem;
+  }
+  .services-section,
+  .products-section {
+    padding: 40px 20px;
+  }
+  .about-section {
+    padding: 60px 20px;
+  }
+  .about-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .home-content h1 {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  .health-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  .contact-form {
+    padding: 20px;
+  }
+  .service-image {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Very small phones (iPhone SE, Galaxy Fold) */
+@media (max-width: 360px) {
+  .home-content h1 {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .contact-title {
+    font-size: 1.3rem;
+  }
+  .contact-input,
+  .contact-textarea {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}
