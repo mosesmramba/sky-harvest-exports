@@ -55,7 +55,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <button className="know-more">Know More</button>
+      {/* <button className="know-more">Know More</button> */}
     </div>
   </div>
 </section>

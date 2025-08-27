@@ -1,5 +1,17 @@
 /* App.css */
 /* HEADER STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1, h2, h3 {
+  font-weight: 600;
+}
+p {
+  font-weight: 400;
+}
 
 .header {
   background-color: #ffffff;
@@ -993,4 +1005,10 @@
     font-size: 0.9rem;
     padding: 8px 10px;
   }
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
